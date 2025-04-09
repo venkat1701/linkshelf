@@ -28,4 +28,19 @@ We welcome contributions from all team members! Please see our [Contributing Gui
 
 ## Recently Added Articles
 
+No articles added yet.
+
 ## Statistics
+
+- **Total Articles:** 0
+- **Last Updated:** N/A
+
+### Top Topics
+
+
+### Top Contributors
+
+
+### Popular Tags
+
+
