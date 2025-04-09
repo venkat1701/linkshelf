@@ -16,7 +16,7 @@ This article explains how Merkle trees can efficiently synchronize data between 
 - In distributed systems that favor availability, ensuring eventual consistency remains challenging, especially when replication processes fail during network issues or node outages
 - Simple approaches like comparing all key-value pairs between nodes are inefficient for large datasets
 - Merkle trees provide an efficient way to detect and synchronize only the differing parts of datasets between nodes
-- Creating separate Merkle trees for each node's partition (rather than the entire dataset) is crucial when working with multi-node replication schemes
+- Creating separate Merkle trees for each node's partition (rather than the entire dataset) is crucial when working with multi node replication schemes
 - A dual replication approach combines immediate write synchronization with periodic Merkle tree-based anti-entropy processes to guarantee stronger eventual consistency
 
 ## Implementation: Merkle Trees in Java
