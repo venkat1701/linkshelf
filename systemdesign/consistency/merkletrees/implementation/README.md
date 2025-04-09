@@ -7,7 +7,6 @@
 **Added on:** 2025-04-09
 
 Link: [Article Link](https://pawan-bhadauria.medium.com/distributed-systems-part-3-managing-anti-entropy-using-merkle-trees-443ea3fc6213)
-
 ## Summary
 
 This article explains how Merkle trees can efficiently synchronize data between nodes in distributed systems to ensure eventual consistency. It discusses the challenges that arise when choosing availability over consistency (as per the CAP theorem), specifically how to guarantee data replication across nodes despite failures or network partitioning. The solution introduces two complementary processes for data replication: a write-time "Harvester" for immediate replication and an anti-entropy manager using Merkle trees for periodic synchronization, allowing efficient comparison and reconciliation of only the differing data segments between nodes.
