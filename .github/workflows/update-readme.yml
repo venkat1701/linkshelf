@@ -1,0 +1,58 @@
+name: Update README with Recent Articles
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/*.md'
+      - '!README.md'
+      - '!CONTRIBUTING.md'
+      - '!template/**'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history to identify recent changes
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml markdown
+
+      - name: Update README with recent articles
+        id: update-readme
+        run: |
+          python .github/scripts/update_readme.py
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet README.md; then
+            echo "No changes to README.md"
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in README.md"
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if README changed
+        if: steps.check-changes.outputs.changes == 'true'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "Update README with recent articles [skip ci]"
+          git push
