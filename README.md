@@ -30,7 +30,22 @@ We welcome contributions from all team members! Please see our [Contributing Gui
 
 No articles added yet.
 
+No articles added yet.
+
 ## Statistics
+
+- **Total Articles:** 0
+- **Last Updated:** N/A
+
+### Top Topics
+
+
+### Top Contributors
+
+
+### Popular Tags
+
+
 
 - **Total Articles:** 0
 - **Last Updated:** N/A
